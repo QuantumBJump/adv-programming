@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="54.0" y="0.0">zoo.pen.PenType</node>
+    <node x="0.0" y="389.0">zoo.animal.Sloth</node>
+    <node x="33.5" y="189.0">zoo.animal.Animal</node>
+    <node x="54.0" y="493.0">zoo.pen.Aquarium</node>
+    <node x="99.0" y="334.0">zoo.pen.Pen</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="zoo.pen.Aquarium" target="zoo.pen.Pen">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="zoo.animal.Sloth" target="zoo.animal.Animal">
+      <point x="0.0" y="-14.5" />
+      <point x="39.5" y="309.0" />
+      <point x="79.25" y="309.0" />
+      <point x="-45.75" y="47.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="161.0" y="236.5" />
+  <SelectedNodes>
+    <node>zoo.pen.Aquarium</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
