@@ -5,15 +5,14 @@ import zoo.pen.PenType;
 import java.util.ArrayList;
 
 /**
- * Created by quinns on 29/01/18.
+ * Created by quinns on 30/01/18.
  */
-public class Sloth extends Animal {
-
-    public Sloth(String name) {
+public class Cat extends Animal {
+    public Cat(String name) {
         this.name = name;
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.DRY);
-        this.requiredArea = 3;
-        this.requiredVolume = 0;
+        this.requiredPenType.add(PenType.PET);
+        this.requiredArea = 4;
     }
 }

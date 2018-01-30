@@ -10,6 +10,6 @@ import java.util.ArrayList;
 public abstract class Animal {
     public String name;
     public ArrayList<PenType> requiredPenType;
-    public double requiredArea;
-    public double requiredVolume;
+    public double requiredArea = 0;
+    public double requiredVolume = 0;
 }

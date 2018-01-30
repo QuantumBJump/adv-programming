@@ -5,20 +5,18 @@ import zoo.animal.Animal;
 /**
  * Created by quinns on 29/01/18.
  */
-public class Aquarium extends Pen {
+public class WetPen extends Pen {
     public double height;
 
-    public Aquarium(String name, double length, double width, double height) {
-        this.name = name;
-        this.length = length;
-        this.width = width;
+    public WetPen(String name, double length, double width, double height) {
+        super(name, length, width, PenType.WET);
         this.height = height;
         this.freeArea = 0;
         this.freeVolume = this.length * this.width * this.height;
     }
 
     public boolean isValid(Animal animal) {
-        if(animal.requiredPenType == PenType.WET && animal.requiredVolume < this.freeVolume) {
+        if(animal.requiredPenType.contains(this.pentype) && animal.requiredVolume < this.freeVolume) {
             return true;
         } else {
             return false;

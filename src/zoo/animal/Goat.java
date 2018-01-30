@@ -10,8 +10,9 @@ import java.util.ArrayList;
 public class Goat extends Animal {
     public Goat (String name) {
         this.name = name;
-        this.requiredPenType = new ArrayList<PenType>;
+        this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.DRY);
         this.requiredPenType.add(PenType.PET);
+        this.requiredArea = 3;
     }
 }
