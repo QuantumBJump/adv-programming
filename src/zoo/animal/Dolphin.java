@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Dolphin extends Animal {
     public Dolphin(String name) {
-        this.name = name;
+        super(name);
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.WET);
         this.requiredVolume = 40;

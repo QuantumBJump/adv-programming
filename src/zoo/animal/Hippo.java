@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Hippo extends Animal {
     public Hippo(String name) {
-        this.name = name;
+        super(name);
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.SEMIWET);
         this.requiredArea = 10;

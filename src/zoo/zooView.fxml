@@ -12,32 +12,51 @@
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <Button fx:id="addAnimalButton" mnemonicParsing="false" onAction="#addAnimal" text="Button" BorderPane.alignment="BOTTOM_CENTER" />
+                  <Button fx:id="addAnimalButton" mnemonicParsing="false" onAction="#openAddAnimalDialog" text="Add Animal" BorderPane.alignment="BOTTOM_CENTER" />
                </top>
                <center>
-                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                     </children>
-                  </VBox>
+                  <TableView fx:id="animalTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="animalName" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="animalSpecies" prefWidth="75.0" text="Species" />
+                        <TableColumn fx:id="animalPen" prefWidth="75.0" text="Pen" />
+                        <TableColumn prefWidth="75.0" text="Keeper" />
+                    </columns>
+                  </TableView>
                </center>
             </BorderPane>
          </content></Tab>
         <Tab text="Staff">
          <content>
-            <StackPane prefHeight="150.0" prefWidth="200.0" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TableView fx:id="staffTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="staffName" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="staffSpeciality" prefWidth="164.0" text="Speciality" />
+                        <TableColumn fx:id="staffPens" prefWidth="360.0" text="Pens" />
+                    </columns>
+                  </TableView>
+               </center>
+            </BorderPane>
          </content></Tab>
-        <Tab text="Pens">
+        <Tab fx:id="addPenButton" text="Pens">
          <content>
-            <StackPane prefHeight="150.0" prefWidth="200.0" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Button fx:id="createPenButton" mnemonicParsing="false" onAction="#openAddPenDialog" text="Create Pen" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <TableView fx:id="penTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="penID" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="penType" prefWidth="75.0" text="Type" />
+                      <TableColumn fx:id="penKeeper" prefWidth="75.0" text="Keeper" />
+                        <TableColumn fx:id="penOccupants" prefWidth="374.0" text="Occupants" />
+                    </columns>
+                  </TableView>
+               </center>
+            </BorderPane>
          </content></Tab>
     </tabs>
 </TabPane>

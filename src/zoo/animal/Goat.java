@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Goat extends Animal {
     public Goat (String name) {
-        this.name = name;
+        super(name);
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.DRY);
         this.requiredPenType.add(PenType.PET);

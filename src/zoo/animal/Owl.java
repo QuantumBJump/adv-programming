@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Owl extends Animal {
     public Owl(String name) {
-        this.name = name;
+        super(name);
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.AIR);
         this.requiredVolume = 20;

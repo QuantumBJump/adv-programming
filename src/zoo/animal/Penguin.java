@@ -1,5 +1,6 @@
 package zoo.animal;
 
+import javafx.beans.property.SimpleStringProperty;
 import zoo.pen.PenType;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Penguin extends Animal {
     public Penguin (String name) {
-        this.name = name;
+        super(name);
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.SEMIWET);
         this.requiredArea = 2;

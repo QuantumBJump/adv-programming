@@ -10,8 +10,8 @@ public class SemiwetPen extends Pen {
     public double dryWidth;
     public double height;
 
-    public SemiwetPen(String name, double dryLength, double dryWidth, double length, double width, double height) {
-        super(name, length, width, PenType.SEMIWET);
+    public SemiwetPen(double dryLength, double dryWidth, double length, double width, double height) {
+        super(length, width, PenType.SEMIWET);
         this.dryLength = dryLength;
         this.dryWidth = dryWidth;
         this.freeArea = this.dryLength * this.dryWidth;
@@ -31,6 +31,7 @@ public class SemiwetPen extends Pen {
             this.occupants.add(animal);
             this.freeArea -= animal.requiredArea;
             this.freeVolume -= animal.requiredVolume;
+            animal.pen = this.viewableID;
         }
     }
 }

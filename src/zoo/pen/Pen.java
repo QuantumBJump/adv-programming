@@ -1,5 +1,7 @@
 package zoo.pen;
 
+import javafx.beans.property.SimpleStringProperty;
+import zoo.Main;
 import zoo.animal.Animal;
 import zoo.staff.Staff;
 
@@ -9,7 +11,8 @@ import java.util.ArrayList;
  * Created by quinns on 29/01/18.
  */
 public abstract class Pen {
-    public String name;
+    public int id;
+    public SimpleStringProperty viewableID;
     public ArrayList<Animal> occupants;
     public double length = 0;
     public double width = 0;
@@ -18,8 +21,10 @@ public abstract class Pen {
     public PenType pentype;
     public Staff manager;
 
-    public Pen (String name, double length, double width, PenType pentype) {
-        this.name = name;
+    public Pen (double length, double width, PenType pentype) {
+        this.id = Main.zooControllerHandle.nextPenID;
+        Main.zooControllerHandle.nextPenID++;
+        this.viewableID = new SimpleStringProperty(Integer.toString(this.id));
         this.length = length;
         this.width = width;
         this.freeArea = this.length * this.width;
@@ -32,7 +37,7 @@ public abstract class Pen {
     abstract void addAnimal(Animal animal);
 
     public boolean staffCanManage(Staff staff) {
-        if(this.pentype == staff.speciality) {
+        if(staff.specialityEnum.contains(this.pentype)) {
             return true;
         }
         return false;

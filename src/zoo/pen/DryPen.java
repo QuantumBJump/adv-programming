@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DryPen extends Pen {
 
     public DryPen(String name, double length, double width) {
-        super(name, length, width, PenType.DRY);
+        super(length, width, PenType.DRY);
     }
 
     public boolean isValid(Animal animal) {
@@ -24,6 +24,7 @@ public class DryPen extends Pen {
         if(this.isValid(animal)) {
             this.occupants.add(animal);
             this.freeArea -= animal.requiredArea;
+            animal.pen = this.viewableID;
         }
     }
 }

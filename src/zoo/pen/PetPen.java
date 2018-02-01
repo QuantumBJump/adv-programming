@@ -8,7 +8,7 @@ import zoo.animal.Animal;
 public class PetPen extends Pen {
 
     public PetPen(String name, double length, double width) {
-        super(name, length, width, PenType.PET);
+        super(length, width, PenType.PET);
     }
 
     public boolean isValid(Animal animal) {
@@ -22,6 +22,7 @@ public class PetPen extends Pen {
         if (this.isValid(animal)) {
             this.occupants.add(animal);
             this.freeArea -= animal.requiredArea;
+            animal.pen = this.viewableID;
         }
     }
 }

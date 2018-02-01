@@ -9,7 +9,7 @@ public class WetPen extends Pen {
     public double height;
 
     public WetPen(String name, double length, double width, double height) {
-        super(name, length, width, PenType.WET);
+        super(length, width, PenType.WET);
         this.height = height;
         this.freeArea = 0;
         this.freeVolume = this.length * this.width * this.height;
@@ -27,6 +27,7 @@ public class WetPen extends Pen {
         if (isValid(animal)) {
             this.occupants.add(animal);
             this.freeVolume -= animal.requiredVolume;
+            animal.pen = this.viewableID;
         }
     }
 }

@@ -8,13 +8,15 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-
-
+    public static ZooController zooControllerHandle;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("zooView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("zooView.fxml"));
+        Parent root = loader.load();
+
+        zooControllerHandle = (ZooController)loader.getController();
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
