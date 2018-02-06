@@ -7,7 +7,7 @@ import zoo.animal.Animal;
  */
 public class PetPen extends Pen {
 
-    public PetPen(String name, double length, double width) {
+    public PetPen(double length, double width) {
         super(length, width, PenType.PET);
     }
 
@@ -21,8 +21,10 @@ public class PetPen extends Pen {
     public void addAnimal(Animal animal) {
         if (this.isValid(animal)) {
             this.occupants.add(animal);
+            this.updateViewableOccupants();
             this.freeArea -= animal.requiredArea;
             animal.pen = this.viewableID;
+            animal.viewableKeeper = this.viewableKeeper;
         }
     }
 }

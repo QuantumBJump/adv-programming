@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zoo.AddPenController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zoo.AddPenController">
    <children>
       <Label layoutX="20.0" layoutY="25.0" text="Type:" />
       <RadioButton fx:id="dryTypeRadioButton" layoutX="71.0" layoutY="24.0" mnemonicParsing="false" onAction="#typeSetDry" text="Dry">
@@ -29,5 +28,6 @@
       <TextField fx:id="heightTextField" layoutX="128.0" layoutY="142.0" />
       <TextField fx:id="dryLengthTextField" layoutX="128.0" layoutY="181.0" />
       <TextField fx:id="dryWidthTextField" layoutX="128.0" layoutY="216.0" />
+      <Button fx:id="confirmAddPenButton" layoutX="393.0" layoutY="130.0" mnemonicParsing="false" onAction="#confirmAddPen" text="Confirm" />
    </children>
 </AnchorPane>

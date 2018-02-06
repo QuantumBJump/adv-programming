@@ -8,7 +8,7 @@ import zoo.animal.Animal;
 public class WetPen extends Pen {
     public double height;
 
-    public WetPen(String name, double length, double width, double height) {
+    public WetPen(double length, double width, double height) {
         super(length, width, PenType.WET);
         this.height = height;
         this.freeArea = 0;
@@ -26,8 +26,10 @@ public class WetPen extends Pen {
     public void addAnimal(Animal animal) {
         if (isValid(animal)) {
             this.occupants.add(animal);
+            this.updateViewableOccupants();
             this.freeVolume -= animal.requiredVolume;
             animal.pen = this.viewableID;
+            animal.viewableKeeper = this.viewableKeeper;
         }
     }
 }

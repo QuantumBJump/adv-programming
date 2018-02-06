@@ -27,10 +27,14 @@ public class ZooController {
     public TableView<Animal> animalTable;
     public TableColumn<Animal, String> animalName;
     public TableColumn<Animal, String> animalSpecies;
+    public TableColumn<Animal, String> animalPen;
+    public TableColumn<Animal, String> animalKeeper;
+    public TableColumn<Animal, String> animalRequiredSpace;
 
     public TableView<Staff> staffTable;
     public TableColumn<Staff, String> staffName;
     public TableColumn<Staff, String> staffSpeciality;
+    public TableColumn<Staff, String> staffPens;
 
     public TableView<Pen> penTable;
     public TableColumn<Pen, String> penID;
@@ -38,34 +42,59 @@ public class ZooController {
     public TableColumn<Pen, String> penKeeper;
     public TableColumn<Pen, String> penOccupants;
 
-    private ObservableList<Animal> animalObservableList = FXCollections.observableArrayList(
+    public ObservableList<Animal> animalObservableList = FXCollections.observableArrayList(
             new Cat("Tikha")
     );
 
-    private ObservableList<Staff> staffObservableList = FXCollections.observableArrayList(
+    public ObservableList<Staff> staffObservableList = FXCollections.observableArrayList(
             new Staff("Hardip", PenType.DRY),
             new Staff("Farhad", PenType.AIR),
             new Staff("Alex", new ArrayList<>(Arrays.asList(PenType.WET, PenType.SEMIWET))),
             new Staff("Alan", PenType.PET)
     );
 
-    private ObservableList<Pen> penObservableList = FXCollections.observableArrayList();
+    public ObservableList<Pen> penObservableList = FXCollections.observableArrayList();
 
     public void initialize() {
+        // Try to load saved data
+        FileReader fr = new FileReader();
+        ArrayList<Animal> animalData = fr.loadAnimalData();
+        for(Animal animal: animalData) {
+            System.out.println("Name: " + animal.name);
+            System.out.println("Class: " + animal.class)
+        }
+        if (animalData != null) {
+            animalObservableList = FXCollections.observableArrayList(animalData);
+        } else {
+            animalObservableList = FXCollections.observableArrayList();
+        }
+
         nextPenID = 0;
 
         // fill animal table.
         animalTable.setItems(animalObservableList);
         animalName.setCellValueFactory(cellData -> cellData.getValue().animalNameProperty());
         animalSpecies.setCellValueFactory(cellData -> cellData.getValue().animalSpeciesProperty());
+        animalPen.setCellValueFactory(cellData -> cellData.getValue().animalPenProperty());
+        animalKeeper.setCellValueFactory(cellData -> cellData.getValue().animalKeeperProperty());
+        animalRequiredSpace.setCellValueFactory(cellData -> cellData.getValue().animalRequiredSpaceProperty());
 
         // fill staff table.
         staffTable.setItems(staffObservableList);
         staffName.setCellValueFactory(cellData -> cellData.getValue().staffNameProperty());
         staffSpeciality.setCellValueFactory(cellData -> cellData.getValue().staffSpecialityProperty());
+        staffPens.setCellValueFactory(cellData -> cellData.getValue().staffViewablePensProperty());
 
         // fill pen table.
+
+        penTable.setItems(penObservableList);
+        penID.setCellValueFactory(cellData -> cellData.getValue().penViewableIDProperty());
+        penType.setCellValueFactory(cellData -> cellData.getValue().penViewablePenTypeProperty());
+        penKeeper.setCellValueFactory(cellData -> cellData.getValue().penViewableKeeperProperty());
+        penOccupants.setCellValueFactory(cellData -> cellData.getValue().penViewableOccupantsProperty());
     }
+
+
     public void openAddAnimalDialog(ActionEvent actionEvent) {
         Stage addAnimalStage = new Stage();
         try {
@@ -88,6 +117,7 @@ public class ZooController {
 
     public void addAnimal(Animal animal) {
         animalObservableList.add(animal);
+        penTable.refresh();
     }
 
     public void openAddPenDialog(ActionEvent actionEvent) {
@@ -99,5 +129,15 @@ public class ZooController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addPen(Pen pen) {
+        penObservableList.add(pen);
+        staffTable.refresh();
+    }
+
+    public void saveData() {
+        FileReader fileReader = new FileReader();
+        fileReader.saveData();
     }
 }

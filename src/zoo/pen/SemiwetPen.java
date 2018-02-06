@@ -29,9 +29,11 @@ public class SemiwetPen extends Pen {
     public void addAnimal(Animal animal) {
         if (this.isValid(animal)) {
             this.occupants.add(animal);
+            this.updateViewableOccupants();
             this.freeArea -= animal.requiredArea;
             this.freeVolume -= animal.requiredVolume;
             animal.pen = this.viewableID;
+            animal.viewableKeeper = this.viewableKeeper;
         }
     }
 }

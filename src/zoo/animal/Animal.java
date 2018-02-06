@@ -2,6 +2,7 @@ package zoo.animal;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import zoo.Main;
 import zoo.pen.Pen;
 import zoo.pen.PenType;
 
@@ -14,6 +15,8 @@ public abstract class Animal {
     public SimpleStringProperty name;
     public SimpleStringProperty species;
     public SimpleStringProperty pen;
+    public SimpleStringProperty viewableRequiredSpace;
+    public SimpleStringProperty viewableKeeper;
     public ArrayList<PenType> requiredPenType;
     public double requiredArea = 0;
     public double requiredVolume = 0;
@@ -33,6 +36,8 @@ public abstract class Animal {
     public StringProperty animalNameProperty() {
         return this.name;
     }
-    public StringProperty animalSpeciesProperty() { return this.species;};
-    public StringProperty animalPenProperty() { return this.pen; };
+    public StringProperty animalSpeciesProperty() { return this.species;}
+    public StringProperty animalPenProperty() { return this.pen; }
+    public StringProperty animalKeeperProperty() { return this.viewableKeeper; }
+    public StringProperty animalRequiredSpaceProperty() { return this.viewableRequiredSpace; }
 }

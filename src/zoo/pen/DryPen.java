@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class DryPen extends Pen {
 
-    public DryPen(String name, double length, double width) {
+    public DryPen(double length, double width) {
         super(length, width, PenType.DRY);
     }
 
@@ -23,8 +23,10 @@ public class DryPen extends Pen {
     public void addAnimal(Animal animal) {
         if(this.isValid(animal)) {
             this.occupants.add(animal);
+            this.updateViewableOccupants();
             this.freeArea -= animal.requiredArea;
             animal.pen = this.viewableID;
+            animal.viewableKeeper = this.viewableKeeper;
         }
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class AirPen extends Pen {
     public double height;
 
-    public AirPen(String name, double length, double width, double height) {
+    public AirPen(double length, double width, double height) {
         super(length, width, PenType.AIR);
         this.height = height;
         this.freeVolume = this.length * this.width * this.height;
@@ -27,8 +27,10 @@ public class AirPen extends Pen {
     public void addAnimal(Animal animal) {
         if (this.isValid(animal)) {
             this.occupants.add(animal);
+            this.updateViewableOccupants();
             this.freeVolume -= animal.requiredVolume;
             animal.pen = this.viewableID;
+            animal.viewableKeeper = this.viewableKeeper;
         }
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import zoo.animal.Animal;
+import zoo.pen.Pen;
 
 import java.lang.reflect.*;
 
@@ -19,12 +20,20 @@ public class AddAnimalController {
     ObservableList<String> speciesObservableList = FXCollections.observableArrayList(
             "Cat", "Dog", "Dolphin", "Goat", "Hippo", "Owl", "Penguin", "Sloth"
     );
+    ObservableList<String> penObservableList = FXCollections.observableArrayList();
     public ComboBox speciesComboBox;
+    public ComboBox penComboBox;
     public TextField nameTextField;
     public Button confirmAddAnimalButton;
 
     public void initialize() {
         speciesComboBox.getItems().addAll(speciesObservableList);
+    }
+
+    public void populatePenComboBox() {
+        if (speciesComboBox.getValue() != null) {
+
+        }
     }
 
     public void confirmAddAnimal() {
@@ -51,9 +60,18 @@ public class AddAnimalController {
         System.out.println("Animal exists: " + Main.zooControllerHandle.animalExists(animal.animalNameProperty().get()));
 
         if (animal != null && !Main.zooControllerHandle.animalExists(animal.animalNameProperty().get())) {
-            Main.zooControllerHandle.addAnimal(animal);
-            Stage stage = (Stage)confirmAddAnimalButton.getScene().getWindow();
-            stage.close();
+            if (assignPen(animal)) {
+                Main.zooControllerHandle.addAnimal(animal);
+                Stage stage = (Stage) confirmAddAnimalButton.getScene().getWindow();
+                stage.close();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("No available pens");
+                alert.setHeaderText(null);
+                alert.setContentText("There are no more pens\nInto which this one can fit\nKindly try again");
+                alert.showAndWait();
+                return;
+            }
         } else if (Main.zooControllerHandle.animalExists(animal.animalNameProperty().get())) {
             System.out.println("repeated name");
             // there's already an animal with this name. Error message?
@@ -65,6 +83,17 @@ public class AddAnimalController {
         }
 
     }
+
+    private boolean assignPen(Animal animal) {
+        for (Pen pen: Main.zooControllerHandle.penObservableList) {
+            if (pen.isValid(animal)) {
+                pen.addAnimal(animal);
+                return true;
+            }
+        }
+        return false;
+    }
+
     private Animal generateAnimal(String name, String species) {
         String nameParam = name;
         String className = "zoo.animal." + species;

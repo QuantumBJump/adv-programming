@@ -6,57 +6,67 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 
-<TabPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zoo.ZooController">
-    <tabs>
-        <Tab text="Animals">
-         <content>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <Button fx:id="addAnimalButton" mnemonicParsing="false" onAction="#openAddAnimalDialog" text="Add Animal" BorderPane.alignment="BOTTOM_CENTER" />
-               </top>
-               <center>
-                  <TableView fx:id="animalTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn fx:id="animalName" prefWidth="75.0" text="Name" />
-                      <TableColumn fx:id="animalSpecies" prefWidth="75.0" text="Species" />
-                        <TableColumn fx:id="animalPen" prefWidth="75.0" text="Pen" />
-                        <TableColumn prefWidth="75.0" text="Keeper" />
-                    </columns>
-                  </TableView>
-               </center>
-            </BorderPane>
-         </content></Tab>
-        <Tab text="Staff">
-         <content>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <TableView fx:id="staffTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn fx:id="staffName" prefWidth="75.0" text="Name" />
-                      <TableColumn fx:id="staffSpeciality" prefWidth="164.0" text="Speciality" />
-                        <TableColumn fx:id="staffPens" prefWidth="360.0" text="Pens" />
-                    </columns>
-                  </TableView>
-               </center>
-            </BorderPane>
-         </content></Tab>
-        <Tab fx:id="addPenButton" text="Pens">
-         <content>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <Button fx:id="createPenButton" mnemonicParsing="false" onAction="#openAddPenDialog" text="Create Pen" BorderPane.alignment="CENTER" />
-               </top>
-               <center>
-                  <TableView fx:id="penTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn fx:id="penID" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="penType" prefWidth="75.0" text="Type" />
-                      <TableColumn fx:id="penKeeper" prefWidth="75.0" text="Keeper" />
-                        <TableColumn fx:id="penOccupants" prefWidth="374.0" text="Occupants" />
-                    </columns>
-                  </TableView>
-               </center>
-            </BorderPane>
-         </content></Tab>
-    </tabs>
-</TabPane>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zoo.ZooController">
+   <children>
+      <TabPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+              <Tab text="Animals">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Button fx:id="addAnimalButton" mnemonicParsing="false" onAction="#openAddAnimalDialog" text="Add Animal" BorderPane.alignment="BOTTOM_CENTER" />
+                     </top>
+                     <center>
+                        <TableView fx:id="animalTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="animalName" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="animalSpecies" prefWidth="75.0" text="Species" />
+                              <TableColumn fx:id="animalPen" prefWidth="75.0" text="Pen" />
+                              <TableColumn fx:id="animalKeeper" prefWidth="75.0" text="Keeper" />
+                              <TableColumn fx:id="animalRequiredSpace" prefWidth="138.0" text="Required Space" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+              <Tab text="Staff">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <TableView fx:id="staffTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="staffName" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="staffSpeciality" prefWidth="164.0" text="Speciality" />
+                              <TableColumn fx:id="staffPens" prefWidth="360.0" text="Pens" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+              <Tab fx:id="addPenButton" text="Pens">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Button fx:id="createPenButton" mnemonicParsing="false" onAction="#openAddPenDialog" text="Create Pen" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <TableView fx:id="penTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="penID" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="penType" prefWidth="75.0" text="Type" />
+                            <TableColumn fx:id="penKeeper" prefWidth="75.0" text="Keeper" />
+                              <TableColumn fx:id="penOccupants" prefWidth="374.0" text="Occupants" />
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+          </tabs>
+      </TabPane>
+      <Button onAction="#saveData" layoutX="269.0" layoutY="411.0" mnemonicParsing="false" text="Save Data" />
+   </children>
+</AnchorPane>
