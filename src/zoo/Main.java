@@ -12,12 +12,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("zooView.fxml"));
-        Parent root = loader.load();
 
+        Parent root = loader.load();
         zooControllerHandle = (ZooController)loader.getController();
+
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+//        zooControllerHandle.zoo.loadTestData();
+        zooControllerHandle.updateObservableLists();
     }
 
 

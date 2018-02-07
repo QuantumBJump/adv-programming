@@ -3,12 +3,13 @@ package zoo.pen;
 import javafx.beans.property.SimpleStringProperty;
 import zoo.animal.Animal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by quinns on 30/01/18.
  */
-public class AirPen extends Pen {
+public class AirPen extends Pen implements Serializable {
     public double height;
 
     public AirPen(double length, double width, double height) {
@@ -29,8 +30,9 @@ public class AirPen extends Pen {
             this.occupants.add(animal);
             this.updateViewableOccupants();
             this.freeVolume -= animal.requiredVolume;
-            animal.pen = this.viewableID;
-            animal.viewableKeeper = this.viewableKeeper;
+            animal.pen = this;
+            animal.keeper = this.keeper;
+            animal.updateViewableProperties();
         }
     }
 }

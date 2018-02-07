@@ -2,30 +2,32 @@ package zoo.animal;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import zoo.pen.Pen;
 import zoo.pen.PenType;
 import zoo.staff.Staff;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by quinns on 29/01/18.
  */
-public abstract class Animal {
+public abstract class Animal implements Serializable {
     public String name;
-    public SimpleStringProperty viewableName;
+    public transient SimpleStringProperty viewableName;
 
     public String species;
-    public SimpleStringProperty viewableSpecies;
+    public transient SimpleStringProperty viewableSpecies;
 
-    public String pen;
-    public SimpleStringProperty viewablePen;
+    public Pen pen;
+    public transient SimpleStringProperty viewablePen;
 
     public double requiredArea = 0;
     public double requiredVolume = 0;
-    public SimpleStringProperty viewableRequiredSpace;
+    public transient SimpleStringProperty viewableRequiredSpace;
 
     public Staff keeper;
-    public SimpleStringProperty viewableKeeper;
+    public transient SimpleStringProperty viewableKeeper;
 
     public ArrayList<PenType> requiredPenType;
 
@@ -61,6 +63,18 @@ public abstract class Animal {
         } else if (this.requiredVolume != 0) {
             String requiredSpaceString = requiredVolume + "m cubed";
             this.viewableRequiredSpace = new SimpleStringProperty(requiredSpaceString);
+        }
+    }
+
+    public void updateViewableProperties() {
+        this.viewableName = new SimpleStringProperty(this.name);
+        this.viewableSpecies = new SimpleStringProperty(this.species);
+        this.setViewableRequiredSpace();
+        if (this.pen != null) {
+            this.viewablePen = new SimpleStringProperty(String.valueOf(this.pen.id));
+        }
+        if (this.keeper != null) {
+            this.viewableKeeper = new SimpleStringProperty(this.keeper.name);
         }
     }
 

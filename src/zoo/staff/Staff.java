@@ -6,42 +6,45 @@ import sun.java2d.pipe.SpanShapeRenderer;
 import zoo.pen.Pen;
 import zoo.pen.PenType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by quinns on 30/01/18.
  */
-public class Staff {
-    public SimpleStringProperty name;
-    public SimpleStringProperty speciality;
-    public SimpleStringProperty viewablePens;
+public class Staff implements Serializable {
+    public String name;
+    public transient SimpleStringProperty viewableName;
+
+    public ArrayList<PenType> speciality;
+    public transient SimpleStringProperty viewableSpeciality;
+
     public ArrayList<Pen> pens;
-    public ArrayList<PenType> specialityEnum;
+    public transient SimpleStringProperty viewablePens;
 
     public Staff(String name, PenType speciality) {
-        this.name = new SimpleStringProperty(name);
-        this.specialityEnum = new ArrayList<>();
-        this.specialityEnum.add(speciality);
-        updateSpecialities();
+        this.name = name;
+        this.viewableName = new SimpleStringProperty(name);
+        this.speciality = new ArrayList<>();
+        this.speciality.add(speciality);
         this.pens = new ArrayList<>();
-        updateViewablePens();
+        this.updateViewableProperties();
     }
 
     public Staff(String name, ArrayList<PenType> speciality) {
-        this.name = new SimpleStringProperty(name);
-        this.specialityEnum = speciality;
-        updateSpecialities();
+        this.name = name;
+        this.speciality = speciality;
         this.pens = new ArrayList<>();
-        updateViewablePens();
+        this.updateViewableProperties();
     }
 
     public void updateSpecialities() {
         ArrayList<String> specialityList = new ArrayList<>();
-        for (PenType type: this.specialityEnum) {
+        for (PenType type: this.speciality) {
             specialityList.add(type.name());
         }
         String specialityString = String.join(", ", specialityList);
-        this.speciality = new SimpleStringProperty(specialityString);
+        this.viewableSpeciality = new SimpleStringProperty(specialityString);
     }
 
     public void updateViewablePens() {
@@ -54,8 +57,14 @@ public class Staff {
         this.viewablePens = new SimpleStringProperty(penString);
     }
 
-    public StringProperty staffNameProperty() { return this.name; }
-    public StringProperty staffSpecialityProperty() { return this.speciality; }
+    public void updateViewableProperties() {
+        this.viewableName = new SimpleStringProperty(this.name);
+        this.updateViewablePens();
+        this.updateSpecialities();
+    }
+
+    public StringProperty staffNameProperty() { return this.viewableName; }
+    public StringProperty staffSpecialityProperty() { return this.viewableSpeciality; }
     public StringProperty staffViewablePensProperty() { return this.viewablePens; }
 
 

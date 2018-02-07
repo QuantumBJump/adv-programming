@@ -2,10 +2,12 @@ package zoo.pen;
 
 import zoo.animal.Animal;
 
+import java.io.Serializable;
+
 /**
  * Created by quinns on 29/01/18.
  */
-public class WetPen extends Pen {
+public class WetPen extends Pen implements Serializable {
     public double height;
 
     public WetPen(double length, double width, double height) {
@@ -28,8 +30,9 @@ public class WetPen extends Pen {
             this.occupants.add(animal);
             this.updateViewableOccupants();
             this.freeVolume -= animal.requiredVolume;
-            animal.pen = this.viewableID;
-            animal.viewableKeeper = this.viewableKeeper;
+            animal.pen = this;
+            animal.keeper = this.keeper;
+            animal.updateViewableProperties();
         }
     }
 }

@@ -1,16 +1,22 @@
 package zoo.pen;
 
+import zoo.Main;
 import zoo.animal.Animal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by quinns on 30/01/18.
  */
-public class DryPen extends Pen {
+public class DryPen extends Pen implements Serializable{
 
     public DryPen(double length, double width) {
         super(length, width, PenType.DRY);
+    }
+
+    public DryPen(int id, double length, double width) {
+        super(id, length, width, PenType.DRY);
     }
 
     public boolean isValid(Animal animal) {
@@ -25,8 +31,9 @@ public class DryPen extends Pen {
             this.occupants.add(animal);
             this.updateViewableOccupants();
             this.freeArea -= animal.requiredArea;
-            animal.pen = this.viewableID;
-            animal.viewableKeeper = this.viewableKeeper;
+            animal.pen = this;
+            animal.keeper = this.keeper;
+            animal.updateViewableProperties();
         }
     }
 }

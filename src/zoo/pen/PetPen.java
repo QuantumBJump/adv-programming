@@ -1,11 +1,14 @@
 package zoo.pen;
 
+import javafx.beans.property.SimpleStringProperty;
 import zoo.animal.Animal;
+
+import java.io.Serializable;
 
 /**
  * Created by quinns on 30/01/18.
  */
-public class PetPen extends Pen {
+public class PetPen extends Pen implements Serializable {
 
     public PetPen(double length, double width) {
         super(length, width, PenType.PET);
@@ -23,8 +26,9 @@ public class PetPen extends Pen {
             this.occupants.add(animal);
             this.updateViewableOccupants();
             this.freeArea -= animal.requiredArea;
-            animal.pen = this.viewableID;
-            animal.viewableKeeper = this.viewableKeeper;
+            animal.pen = this;
+            animal.keeper = this.keeper;
+            animal.updateViewableProperties();
         }
     }
 }

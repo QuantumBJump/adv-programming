@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 public class ZooController {
     public int nextPenID;
+    public Zoo zoo;
 
     public TableView<Animal> animalTable;
     public TableColumn<Animal, String> animalName;
@@ -56,18 +57,26 @@ public class ZooController {
     public ObservableList<Pen> penObservableList = FXCollections.observableArrayList();
 
     public void initialize() {
+        this.nextPenID = 0;
 
-        Zoo zoo = new Zoo();
-        // Try to load saved data
         FileReader fr = new FileReader();
-        Animal animalData = fr.loadAnimalData();
-        if (animalData != null) {
-            animalObservableList = FXCollections.observableArrayList(animalData);
+        this.zoo = fr.loadData();
+        if (this.zoo != null) {
+            this.zoo.populateObservables();
         } else {
-            animalObservableList = FXCollections.observableArrayList();
+            this.zoo = new Zoo();
         }
+        updateObservableLists();
 
-        nextPenID = 0;
+        // Try to load saved data
+//        FileReader fr = new FileReader();
+//        Animal animalData = fr.loadAnimalData();
+//        if (animalData != null) {
+//            animalObservableList = FXCollections.observableArrayList(animalData);
+//        } else {
+//            animalObservableList = FXCollections.observableArrayList();
+//        }
+
 
         // fill animal table.
         animalTable.setItems(animalObservableList);
@@ -92,6 +101,18 @@ public class ZooController {
         penOccupants.setCellValueFactory(cellData -> cellData.getValue().penViewableOccupantsProperty());
     }
 
+    public void updateObservableLists() {
+        staffObservableList.clear();
+        staffObservableList.addAll(zoo.getStaffObservableList());
+        animalObservableList.clear();
+        animalObservableList.addAll(zoo.getAnimalObservableList());
+        penObservableList.clear();
+        penObservableList.addAll(zoo.getPenObservableList());
+        penTable.refresh();
+        staffTable.refresh();
+        animalTable.refresh();
+    }
+
 
     public void openAddAnimalDialog(ActionEvent actionEvent) {
         Stage addAnimalStage = new Stage();
@@ -105,7 +126,7 @@ public class ZooController {
     }
 
     public boolean animalExists(String name) {
-        for (Animal animal: animalObservableList) {
+        for (Animal animal: zoo.animals) {
             if(name.equals(animal.animalNameProperty().get())) {
                 return true;
             }
@@ -114,8 +135,8 @@ public class ZooController {
     }
 
     public void addAnimal(Animal animal) {
-        animalObservableList.add(animal);
-        penTable.refresh();
+        zoo.addAnimal(animal);
+        updateObservableLists();
     }
 
     public void openAddPenDialog(ActionEvent actionEvent) {
@@ -130,12 +151,14 @@ public class ZooController {
     }
 
     public void addPen(Pen pen) {
-        penObservableList.add(pen);
+        this.zoo.addPen(pen);
+        this.updateObservableLists();
+        penTable.refresh();
         staffTable.refresh();
     }
 
     public void saveData() {
         FileReader fileReader = new FileReader();
-        fileReader.saveData();
+        fileReader.saveData(this.zoo);
     }
 }
