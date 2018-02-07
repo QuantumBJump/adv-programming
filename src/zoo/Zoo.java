@@ -3,8 +3,6 @@ package zoo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import zoo.animal.Animal;
-import zoo.animal.Cat;
-import zoo.pen.DryPen;
 import zoo.pen.Pen;
 import zoo.pen.PenType;
 import zoo.staff.Staff;

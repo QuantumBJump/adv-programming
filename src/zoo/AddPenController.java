@@ -50,7 +50,7 @@ public class AddPenController {
                 }
             }
         }
-        zoo.pen.Pen pen = null;
+        zoo.pen.Pen pen;
         if (dryTypeRadioButton.isSelected()) {
             int length = Integer.parseInt(lengthTextField.getText());
             int width = Integer.parseInt(widthTextField.getText());
