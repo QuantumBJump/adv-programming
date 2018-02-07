@@ -37,7 +37,6 @@ public class Zoo implements Serializable {
 
     public void populateObservables() {
         for (Animal animal: this.animals) {
-            System.out.println(animal.pen);
             animal.updateViewableProperties();
         }
         for (Staff staff: this.staff) {

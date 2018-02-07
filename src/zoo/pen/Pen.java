@@ -31,7 +31,6 @@ public abstract class Pen implements Serializable {
     public transient SimpleStringProperty viewableKeeper;
 
     public Pen (double length, double width, PenType pentype) {
-        System.out.println(Main.zooControllerHandle);
         this.id = Main.zooControllerHandle.zoo.nextPenID;
         Main.zooControllerHandle.zoo.nextPenID++;
         this.length = length;
@@ -66,8 +65,6 @@ public abstract class Pen implements Serializable {
     }
 
     public void setKeeper() {
-        System.out.println(Main.zooControllerHandle);
-        System.out.println(Main.zooControllerHandle.zoo.staff);
         for (Staff keeper: Main.zooControllerHandle.zoo.staff) {
             if (keeper.speciality.contains(this.pentype)) {
                 this.keeper = keeper;

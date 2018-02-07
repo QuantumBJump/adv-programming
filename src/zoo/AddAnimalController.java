@@ -20,9 +20,7 @@ public class AddAnimalController {
     ObservableList<String> speciesObservableList = FXCollections.observableArrayList(
             "Cat", "Dog", "Dolphin", "Goat", "Hippo", "Owl", "Penguin", "Sloth"
     );
-    ObservableList<String> penObservableList = FXCollections.observableArrayList();
     public ComboBox speciesComboBox;
-    public ComboBox penComboBox;
     public TextField nameTextField;
     public Button confirmAddAnimalButton;
 
@@ -73,8 +71,6 @@ public class AddAnimalController {
                 return;
             }
         } else if (Main.zooControllerHandle.animalExists(animal.animalNameProperty().get())) {
-            System.out.println("repeated viewableName");
-            // there's already an animal with this viewableName. Error message?
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Repeated Name");
             alert.setHeaderText(null);

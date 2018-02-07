@@ -54,7 +54,6 @@ public class AddPenController {
         if (dryTypeRadioButton.isSelected()) {
             int length = Integer.parseInt(lengthTextField.getText());
             int width = Integer.parseInt(widthTextField.getText());
-            System.out.println("width: " + width);
             pen = new DryPen(length, width);
         } else if (semiwetTypeRadioButton.isSelected()) {
             int length = Integer.parseInt(lengthTextField.getText());

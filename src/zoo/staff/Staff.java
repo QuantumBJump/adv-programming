@@ -50,7 +50,6 @@ public class Staff implements Serializable {
     public void updateViewablePens() {
         ArrayList<String> pensList = new ArrayList<>();
         for (Pen pen : this.pens) {
-            System.out.println("Pen id: " + pen.id);
             pensList.add(String.valueOf(pen.id));
         }
         String penString = String.join(", ", pensList);

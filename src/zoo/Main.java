@@ -19,7 +19,6 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-//        zooControllerHandle.zoo.loadTestData();
         zooControllerHandle.updateObservableLists();
     }
 
