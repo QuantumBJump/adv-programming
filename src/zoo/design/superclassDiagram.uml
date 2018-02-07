@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="127.796343537415" y="1285.0">zoo.ZooController</node>
+    <node x="0.0" y="400.0">zoo.animal.Animal</node>
+    <node x="339.13786139455783" y="1086.0">zoo.Zoo</node>
+    <node x="352.940199829932" y="0.0">zoo.pen.PenType</node>
+    <node x="428.6289328231292" y="189.0">zoo.staff.Staff</node>
+    <node x="209.34364370748295" y="743.0">zoo.pen.Pen</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="zoo.Zoo" target="zoo.pen.Pen">
+      <point x="-34.37500000000006" y="-69.5" />
+      <point x="442.26286139455783" y="1066.0" />
+      <point x="475.17697704081627" y="1066.0" />
+      <point x="106.33333333333331" y="146.5" />
+    </edge>
+    <edge source="zoo.staff.Staff" target="zoo.pen.PenType">
+      <point x="0.0" y="-80.5" />
+      <point x="550.1289328231292" y="164.0" />
+      <point x="471.27353316326537" y="164.0" />
+      <point x="47.33333333333337" y="69.5" />
+    </edge>
+    <edge source="zoo.pen.Pen" target="zoo.pen.PenType">
+      <point x="0.0" y="-146.5" />
+      <point x="368.84364370748295" y="723.0" />
+      <point x="411.3459821428571" y="723.0" />
+      <point x="411.3459821428571" y="164.0" />
+      <point x="423.940199829932" y="164.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="zoo.ZooController" target="zoo.animal.Animal">
+      <point x="-216.125" y="-234.5" />
+      <point x="158.671343537415" y="1265.0" />
+      <point x="125.63786139455783" y="1265.0" />
+      <point x="125.63786139455783" y="723.0" />
+      <point x="36.30000000000001" y="723.0" />
+      <point x="-145.2" y="146.5" />
+    </edge>
+    <edge source="zoo.pen.Pen" target="zoo.animal.Animal">
+      <point x="-127.60000000000002" y="-146.5" />
+      <point x="241.24364370748293" y="723.0" />
+      <point x="254.1" y="723.0" />
+      <point x="72.6" y="146.5" />
+    </edge>
+    <edge source="zoo.pen.Pen" target="zoo.staff.Staff">
+      <point x="127.60000000000002" y="-146.5" />
+      <point x="496.443643707483" y="723.0" />
+      <point x="463.0857142857143" y="723.0" />
+      <point x="463.0857142857143" y="380.0" />
+      <point x="515.4146471088436" y="380.0" />
+      <point x="-34.714285714285666" y="80.5" />
+    </edge>
+    <edge source="zoo.Zoo" target="zoo.staff.Staff">
+      <point x="103.12499999999994" y="-69.5" />
+      <point x="579.7628613945578" y="1066.0" />
+      <point x="592.3459821428571" y="1066.0" />
+      <point x="592.3459821428571" y="380.0" />
+      <point x="584.8432185374149" y="380.0" />
+      <point x="34.714285714285666" y="80.5" />
+    </edge>
+    <edge source="zoo.ZooController" target="zoo.pen.Pen">
+      <point x="-92.625" y="-234.5" />
+      <point x="282.171343537415" y="1265.0" />
+      <point x="303.8333333333333" y="1265.0" />
+      <point x="303.8333333333333" y="1066.0" />
+      <point x="262.51031037414964" y="1066.0" />
+      <point x="-106.33333333333331" y="146.5" />
+    </edge>
+    <edge source="zoo.Zoo" target="zoo.animal.Animal">
+      <point x="-103.12500000000006" y="-69.5" />
+      <point x="373.51286139455783" y="1056.0" />
+      <point x="147.63786139455783" y="1056.0" />
+      <point x="147.63786139455783" y="723.0" />
+      <point x="181.5" y="723.0" />
+      <point x="0.0" y="146.5" />
+    </edge>
+    <edge source="zoo.animal.Animal" target="zoo.pen.PenType">
+      <point x="-90.75" y="-146.5" />
+      <point x="90.75" y="164.0" />
+      <point x="376.6068664965987" y="164.0" />
+      <point x="-47.333333333333314" y="69.5" />
+    </edge>
+    <edge source="zoo.staff.Staff" target="zoo.pen.Pen">
+      <point x="-69.42857142857144" y="80.5" />
+      <point x="480.7003613945578" y="370.0" />
+      <point x="452.0857142857143" y="370.0" />
+      <point x="452.0857142857143" y="723.0" />
+      <point x="432.6436437074829" y="723.0" />
+      <point x="63.799999999999955" y="-146.5" />
+    </edge>
+    <edge source="zoo.ZooController" target="zoo.Zoo">
+      <point x="92.625" y="-234.5" />
+      <point x="467.421343537415" y="1245.0" />
+      <point x="545.3878613945578" y="1245.0" />
+      <point x="68.74999999999994" y="69.5" />
+    </edge>
+    <edge source="zoo.animal.Animal" target="zoo.staff.Staff">
+      <point x="90.75" y="-146.5" />
+      <point x="272.25" y="380.0" />
+      <point x="445.9860756802721" y="380.0" />
+      <point x="-104.14285714285711" y="80.5" />
+    </edge>
+    <edge source="zoo.ZooController" target="zoo.staff.Staff">
+      <point x="216.125" y="-234.5" />
+      <point x="590.9213435374149" y="1265.0" />
+      <point x="635.6378613945578" y="1265.0" />
+      <point x="635.6378613945578" y="380.0" />
+      <point x="654.2717899659865" y="380.0" />
+      <point x="104.14285714285722" y="80.5" />
+    </edge>
+    <edge source="zoo.animal.Animal" target="zoo.pen.Pen">
+      <point x="145.2" y="146.5" />
+      <point x="326.7" y="723.0" />
+      <point x="305.0436437074829" y="723.0" />
+      <point x="-63.80000000000007" y="-146.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.42446448703494927" x="336.0" y="877.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

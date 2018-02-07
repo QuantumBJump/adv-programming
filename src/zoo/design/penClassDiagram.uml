@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="427.0" y="599.0">zoo.pen.WetPen</node>
+    <node x="235.0" y="599.0">zoo.pen.AirPen</node>
+    <node x="442.0" y="0.0">zoo.pen.PenType</node>
+    <node x="875.0" y="610.5">zoo.pen.PetPen</node>
+    <node x="0.0" y="610.5">zoo.pen.DryPen</node>
+    <node x="619.0" y="577.0">zoo.pen.SemiwetPen</node>
+    <node x="333.5" y="189.0">zoo.pen.Pen</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="zoo.pen.AirPen" target="zoo.pen.Pen">
+      <point x="0.0" y="-37.0" />
+      <point x="321.0" y="557.0" />
+      <point x="441.20000000000005" y="557.0" />
+      <point x="-71.79999999999995" y="169.0" />
+    </edge>
+    <edge source="zoo.pen.PetPen" target="zoo.pen.Pen">
+      <point x="0.0" y="-25.5" />
+      <point x="981.5" y="547.0" />
+      <point x="656.6" y="547.0" />
+      <point x="143.60000000000002" y="169.0" />
+    </edge>
+    <edge source="zoo.pen.DryPen" target="zoo.pen.Pen">
+      <point x="0.0" y="-25.5" />
+      <point x="107.5" y="547.0" />
+      <point x="369.4" y="547.0" />
+      <point x="-143.60000000000002" y="169.0" />
+    </edge>
+    <edge source="zoo.pen.Pen" target="zoo.pen.PenType">
+      <point x="0.0" y="-169.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="zoo.pen.SemiwetPen" target="zoo.pen.Pen">
+      <point x="0.0" y="-59.0" />
+      <point x="737.0" y="557.0" />
+      <point x="584.8000000000001" y="557.0" />
+      <point x="71.80000000000007" y="169.0" />
+    </edge>
+    <edge source="zoo.pen.WetPen" target="zoo.pen.Pen">
+      <point x="0.0" y="-37.0" />
+      <point x="0.0" y="169.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7675840978593272" x="644.0" y="480.5" />
+  <SelectedNodes>
+    <node>zoo.pen.PenType</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

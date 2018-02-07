@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1009.0" y="408.0">zoo.animal.Penguin</node>
+    <node x="159.00000000000006" y="408.0">zoo.animal.Dog</node>
+    <node x="0.0" y="408.0">zoo.animal.Cat</node>
+    <node x="1197.0" y="408.0">zoo.animal.Sloth</node>
+    <node x="507.00000000000006" y="408.0">zoo.animal.Goat</node>
+    <node x="464.25000000000006" y="0.0">zoo.animal.Animal</node>
+    <node x="848.0" y="408.0">zoo.animal.Owl</node>
+    <node x="674.0" y="408.0">zoo.animal.Hippo</node>
+    <node x="322.00000000000006" y="408.0">zoo.animal.Dolphin</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="zoo.animal.Owl" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="918.5" y="378.0" />
+      <point x="741.3125" y="378.0" />
+      <point x="75.5625" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Cat" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="69.5" y="358.0" />
+      <point x="489.43750000000006" y="358.0" />
+      <point x="-176.3125" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Penguin" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="1093.0" y="368.0" />
+      <point x="791.6875" y="368.0" />
+      <point x="125.9375" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Dolphin" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="404.50000000000006" y="378.0" />
+      <point x="590.1875" y="378.0" />
+      <point x="-75.5625" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Goat" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="580.5" y="388.0" />
+      <point x="640.5625" y="388.0" />
+      <point x="-25.1875" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Sloth" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="1272.0" y="358.0" />
+      <point x="842.0625" y="358.0" />
+      <point x="176.3125" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Dog" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="230.50000000000006" y="368.0" />
+      <point x="539.8125" y="368.0" />
+      <point x="-125.9375" y="169.0" />
+    </edge>
+    <edge source="zoo.animal.Hippo" target="zoo.animal.Animal">
+      <point x="0.0" y="-25.5" />
+      <point x="751.0" y="388.0" />
+      <point x="690.9375" y="388.0" />
+      <point x="25.1875" y="169.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="673.5" y="229.5" />
+  <SelectedNodes>
+    <node>zoo.animal.Sloth</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
