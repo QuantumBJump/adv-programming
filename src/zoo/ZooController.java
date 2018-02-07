@@ -59,6 +59,13 @@ public class ZooController {
     public void initialize() {
         this.nextPenID = 0;
 
+        WeatherReporter weatherReporter = new WeatherReporter();
+        try {
+            weatherReporter.getWeather();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         FileReader fr = new FileReader();
         this.zoo = fr.loadData();
         if (this.zoo != null) {
