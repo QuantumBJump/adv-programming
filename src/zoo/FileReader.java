@@ -2,6 +2,7 @@ package zoo;
 
 import zoo.Main;
 import zoo.animal.Animal;
+import com.fasterxml.jackson.core.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,14 +15,14 @@ public class FileReader {
     public void initialize() {
     }
 
-    public ArrayList<Animal> loadAnimalData() {
-        ArrayList<Animal> animalData = new ArrayList<>();
+    public Animal loadAnimalData() {
+        Animal animalData;
         try {
             File animalsFile = new File("resources/animals.ser");
             if (animalsFile.exists()) {
                 FileInputStream fileIn = new FileInputStream(animalsFile);
                 ObjectInputStream objIn = new ObjectInputStream(fileIn);
-                animalData = (ArrayList<Animal>) objIn.readObject();
+                animalData = (Animal)objIn.readObject();
                 return animalData;
             }
         } catch (IOException e) {
@@ -30,6 +31,7 @@ public class FileReader {
             e.printStackTrace();
         }
         return null;
+
     }
 
     public void saveData() {
@@ -51,7 +53,9 @@ public class FileReader {
             }
             fileOut = new FileOutputStream(animalsFile);
             ObjectOutputStream objOut= new ObjectOutputStream(fileOut);
-            objOut.writeObject(animals);
+            for(Animal animal: animals) {
+                objOut.writeObject(animal);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

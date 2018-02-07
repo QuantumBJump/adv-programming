@@ -16,6 +16,6 @@ public class Penguin extends Animal implements Serializable {
         this.requiredPenType.add(PenType.SEMIWET);
         this.requiredArea = 2;
         this.requiredVolume = 4;
-        this.viewableRequiredSpace = new SimpleStringProperty("2m squared, 4m cubed");
+        this.setViewableRequiredSpace();
     }
 }

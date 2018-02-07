@@ -17,6 +17,6 @@ public class Cat extends Animal implements Serializable{
         this.requiredPenType.add(PenType.DRY);
         this.requiredPenType.add(PenType.PET);
         this.requiredArea = 4;
-        this.viewableRequiredSpace = new SimpleStringProperty("4m squared");
+        this.setViewableRequiredSpace();
     }
 }

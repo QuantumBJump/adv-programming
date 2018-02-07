@@ -45,11 +45,11 @@ public class AddAnimalController {
             alert.showAndWait();
             return;
         }
-        // check if name is filled in.
+        // check if viewableName is filled in.
         if (nameTextField.getText() == null || nameTextField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("No name given");
-            alert.setContentText("Can an animal\nbe really truly famous \nhaving not a name?");
+            alert.setTitle("No viewableName given");
+            alert.setContentText("Can an animal\nbe really truly famous \nhaving not a viewableName?");
             alert.showAndWait();
             return;
         }
@@ -73,12 +73,12 @@ public class AddAnimalController {
                 return;
             }
         } else if (Main.zooControllerHandle.animalExists(animal.animalNameProperty().get())) {
-            System.out.println("repeated name");
-            // there's already an animal with this name. Error message?
+            System.out.println("repeated viewableName");
+            // there's already an animal with this viewableName. Error message?
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Repeated Name");
             alert.setHeaderText(null);
-            alert.setContentText("Sorry, you can't have \nmany famous animals \nwith a single name.");
+            alert.setContentText("Sorry, you can't have \nmany famous animals \nwith a single viewableName.");
             alert.showAndWait();
         }
 

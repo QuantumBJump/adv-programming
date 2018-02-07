@@ -17,6 +17,6 @@ public class Sloth extends Animal implements Serializable {
         this.requiredPenType.add(PenType.DRY);
         this.requiredArea = 3;
         this.requiredVolume = 0;
-        this.viewableRequiredSpace = new SimpleStringProperty("3m squared");
+        this.setViewableRequiredSpace();
     }
 }

@@ -15,6 +15,6 @@ public class Dolphin extends Animal implements Serializable {
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.WET);
         this.requiredVolume = 40;
-        this.viewableRequiredSpace = new SimpleStringProperty("40m cubed");
+        this.setViewableRequiredSpace();
     }
 }

@@ -16,6 +16,6 @@ public class Goat extends Animal implements Serializable {
         this.requiredPenType.add(PenType.DRY);
         this.requiredPenType.add(PenType.PET);
         this.requiredArea = 3;
-        this.viewableRequiredSpace = new SimpleStringProperty("3m squared");
+        this.setViewableRequiredSpace();
     }
 }

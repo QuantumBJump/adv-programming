@@ -15,6 +15,6 @@ public class Owl extends Animal implements Serializable {
         this.requiredPenType = new ArrayList<>();
         this.requiredPenType.add(PenType.AIR);
         this.requiredVolume = 20;
-        this.viewableRequiredSpace = new SimpleStringProperty("20m cubed");
+        this.setViewableRequiredSpace();
     }
 }

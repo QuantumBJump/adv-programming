@@ -16,6 +16,6 @@ public class Hippo extends Animal implements Serializable {
         this.requiredPenType.add(PenType.SEMIWET);
         this.requiredArea = 10;
         this.requiredVolume = 20;
-        this.viewableRequiredSpace = new SimpleStringProperty("10m squared, 20m cubed");
+        this.setViewableRequiredSpace();
     }
 }

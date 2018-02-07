@@ -15,6 +15,6 @@ public class Dog extends Animal {
         this.requiredPenType.add(PenType.DRY);
         this.requiredPenType.add(PenType.PET);
         this.requiredArea = 3.5;
-        this.viewableRequiredSpace = new SimpleStringProperty("3.5m squared");
+        this.setViewableRequiredSpace();
     }
 }

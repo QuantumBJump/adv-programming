@@ -56,9 +56,11 @@ public class ZooController {
     public ObservableList<Pen> penObservableList = FXCollections.observableArrayList();
 
     public void initialize() {
+
+        Zoo zoo = new Zoo();
         // Try to load saved data
         FileReader fr = new FileReader();
-        ArrayList<Animal> animalData = fr.loadAnimalData();
+        Animal animalData = fr.loadAnimalData();
         if (animalData != null) {
             animalObservableList = FXCollections.observableArrayList(animalData);
         } else {
