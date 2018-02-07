@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 
-
 <AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zoo.ZooController">
    <children>
       <TabPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
@@ -67,6 +66,7 @@
             </Tab>
           </tabs>
       </TabPane>
-      <Button onAction="#saveData" layoutX="269.0" layoutY="411.0" mnemonicParsing="false" text="Save Data" />
+      <Button layoutX="489.0" layoutY="411.0" mnemonicParsing="false" onAction="#saveData" text="Save Data" />
+      <Label fx:id="weatherLabel" layoutX="14.0" layoutY="404.0" />
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -22,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ZooController {
-    public int nextPenID;
     public Zoo zoo;
 
     public TableView<Animal> animalTable;
@@ -43,29 +43,25 @@ public class ZooController {
     public TableColumn<Pen, String> penKeeper;
     public TableColumn<Pen, String> penOccupants;
 
-    public ObservableList<Animal> animalObservableList = FXCollections.observableArrayList(
-            new Cat("Tikha")
-    );
+    public Label weatherLabel;
 
-    public ObservableList<Staff> staffObservableList = FXCollections.observableArrayList(
-            new Staff("Hardip", PenType.DRY),
-            new Staff("Farhad", PenType.AIR),
-            new Staff("Alex", new ArrayList<>(Arrays.asList(PenType.WET, PenType.SEMIWET))),
-            new Staff("Alan", PenType.PET)
-    );
+    public ObservableList<Animal> animalObservableList = FXCollections.observableArrayList();
+
+    public ObservableList<Staff> staffObservableList = FXCollections.observableArrayList();
 
     public ObservableList<Pen> penObservableList = FXCollections.observableArrayList();
 
     public void initialize() {
-        this.nextPenID = 0;
 
+        // Get weather from openweathermap
         WeatherReporter weatherReporter = new WeatherReporter();
         try {
-            weatherReporter.getWeather();
+            weatherLabel.setText(weatherReporter.getWeather());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        // Load saved data from .ser file if one exists, otherwise open empty client.
         FileReader fr = new FileReader();
         this.zoo = fr.loadData();
         if (this.zoo != null) {
@@ -74,16 +70,6 @@ public class ZooController {
             this.zoo = new Zoo();
         }
         updateObservableLists();
-
-        // Try to load saved data
-//        FileReader fr = new FileReader();
-//        Animal animalData = fr.loadAnimalData();
-//        if (animalData != null) {
-//            animalObservableList = FXCollections.observableArrayList(animalData);
-//        } else {
-//            animalObservableList = FXCollections.observableArrayList();
-//        }
-
 
         // fill animal table.
         animalTable.setItems(animalObservableList);
