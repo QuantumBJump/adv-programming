@@ -35,14 +35,6 @@ public class Zoo implements Serializable {
         this.pens = new ArrayList<>();
     }
 
-    public void loadTestData() {
-        DryPen pen = new DryPen(2,2);
-        this.addPen(pen);
-        Cat tikha = new Cat("Tikha");
-        pen.addAnimal(tikha);
-        this.addAnimal(tikha);
-    }
-
     public void populateObservables() {
         for (Animal animal: this.animals) {
             System.out.println(animal.pen);

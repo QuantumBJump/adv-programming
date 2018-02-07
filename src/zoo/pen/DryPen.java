@@ -15,9 +15,6 @@ public class DryPen extends Pen implements Serializable{
         super(length, width, PenType.DRY);
     }
 
-    public DryPen(int id, double length, double width) {
-        super(id, length, width, PenType.DRY);
-    }
 
     public boolean isValid(Animal animal) {
         if(animal.requiredPenType.contains(PenType.DRY) && animal.requiredArea <= this.freeArea) {
