@@ -9,6 +9,7 @@ import java.io.Serializable;
  * Created by quinns on 30/01/18.
  */
 public class PetPen extends Pen implements Serializable {
+    static final long serialVersionUID = 464;
 
     public PetPen(double length, double width) {
         super(length, width, PenType.PET);

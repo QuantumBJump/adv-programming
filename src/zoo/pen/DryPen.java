@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class DryPen extends Pen implements Serializable{
-
+    static final long serialVersionUID = 463;
     public DryPen(double length, double width) {
         super(length, width, PenType.DRY);
     }

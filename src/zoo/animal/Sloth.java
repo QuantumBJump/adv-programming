@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 29/01/18.
  */
 public class Sloth extends Animal implements Serializable {
-
+    static final long serialVersionUID = 460;
     public Sloth(String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

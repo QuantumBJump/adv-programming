@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class Cat extends Animal implements Serializable{
+    static final long serialVersionUID = 453;
     public Cat(String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Created by quinns on 29/01/18.
  */
 public abstract class Pen implements Serializable {
+    static final long serialVersionUID = 461;
     public int id;
     public transient SimpleStringProperty viewableID;
 

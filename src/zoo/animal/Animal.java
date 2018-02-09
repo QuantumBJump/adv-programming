@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Created by quinns on 29/01/18.
  */
 public abstract class Animal implements Serializable {
+    static final long serialVersionUID = 452;
     public String name;
     public transient SimpleStringProperty viewableName;
 

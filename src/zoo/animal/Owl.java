@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class Owl extends Animal implements Serializable {
+    static final long serialVersionUID = 458;
     public Owl(String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class Hippo extends Animal implements Serializable {
+    static final long serialVersionUID = 457;
     public Hippo(String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

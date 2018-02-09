@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class AirPen extends Pen implements Serializable {
+    static final long serialVersionUID = 462;
     public double height;
 
     public AirPen(double length, double width, double height) {

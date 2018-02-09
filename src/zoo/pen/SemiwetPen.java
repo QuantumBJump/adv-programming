@@ -8,6 +8,7 @@ import java.io.Serializable;
  * Created by quinns on 30/01/18.
  */
 public class SemiwetPen extends Pen implements Serializable {
+    static final long serialVersionUID = 465;
     public double dryLength;
     public double dryWidth;
     public double height;

@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class Dolphin extends Animal implements Serializable {
+    static final long serialVersionUID = 455;
     public Dolphin(String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

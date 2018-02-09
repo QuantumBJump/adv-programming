@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by quinns on 29/01/18.
  */
 public class Goat extends Animal implements Serializable {
+    static final long serialVersionUID = 456;
     public Goat (String name) {
         super(name);
         this.requiredPenType = new ArrayList<>();

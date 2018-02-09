@@ -8,6 +8,7 @@ import java.io.Serializable;
  * Created by quinns on 29/01/18.
  */
 public class WetPen extends Pen implements Serializable {
+    static final long serialVersionUID = 466;
     public double height;
 
     public WetPen(double length, double width, double height) {

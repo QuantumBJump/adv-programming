@@ -55,7 +55,6 @@ public class AddAnimalController {
         String animalSpecies = speciesComboBox.getValue().toString();
         String animalName = nameTextField.getText();
         Animal animal = generateAnimal(animalName, animalSpecies);
-        System.out.println("Animal exists: " + Main.zooControllerHandle.animalExists(animal.animalNameProperty().get()));
 
         if (animal != null && !Main.zooControllerHandle.animalExists(animal.animalNameProperty().get())) {
             if (assignPen(animal)) {

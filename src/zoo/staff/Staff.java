@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Created by quinns on 30/01/18.
  */
 public class Staff implements Serializable {
+    static final long serialVersionUID = 467;
     public String name;
     public transient SimpleStringProperty viewableName;
 
